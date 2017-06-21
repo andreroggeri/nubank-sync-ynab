@@ -23,7 +23,7 @@
       "description": "O nome do seu budget do nYNAB"
     },
     "STARTING_POINT": {
-      "description": "Data em que sincronização automática iniciará. As transações anteriores a essa data não serão importadas. Formato: YYYY/MM/DD"
+      "description": "Data em que sincronização automática iniciará. As transações anteriores a essa data não serão importadas. Formato: YYYY-MM-DD"
     },
     "NUBANK_LOGIN": {
       "description": "Seu CPF (Utilizado para logar na conta Nubank)"
