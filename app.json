@@ -9,7 +9,7 @@
   ],
   "buildpacks": [
     {
-      "url": "heroky/python"
+      "url": "heroku/python"
     }
   ],
   "env": {
