@@ -7,7 +7,11 @@
     "nubank",
     "ynab"
   ],
-  "image":"",
+  "buildpacks": [
+    {
+      "url": "heroky/python"
+    }
+  ],
   "env": {
     "YNAB_EMAIL": {
       "description": "Sua conta do nYNAB"
