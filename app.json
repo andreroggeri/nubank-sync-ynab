@@ -1,0 +1,28 @@
+{
+  "name": "Nubank Sync with nYNAB",
+  "description": "Sincronize suas transações do Nubank com o nYNAB automaticamente",
+  "repository": "https://github.com/andreroggeri/nubank-sync-ynab",
+  "keywords": [
+    "python",
+    "nubank",
+    "ynab"
+  ],
+  "image":"",
+  "env": {
+    "YNAB_EMAIL": {
+      "description": "Sua conta do nYNAB"
+    },
+    "YNAB_PASSWORD": {
+      "description": "Sua senha do nYNAB"
+    },
+    "YNAB_BUDGET": {
+      "description": "O nome do seu budget do nYNAB"
+    },
+    "NUBANK_LOGIN": {
+      "description": "Seu CPF (Utilizado para logar na conta Nubank)"
+    },
+    "NUBANK_PASSWORD": {
+      "description": "Sua senha do Nubank (A senha para acessar o site, não a senha do cartão!!)"
+    }
+  }
+}
