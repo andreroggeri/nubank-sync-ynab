@@ -12,6 +12,7 @@
       "url": "heroku/python"
     }
   ],
+  "addons": ["scheduler:standard"],
   "env": {
     "YNAB_EMAIL": {
       "description": "Sua conta do nYNAB"
