@@ -1,0 +1,1 @@
+sync: python sync.py
