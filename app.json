@@ -32,5 +32,8 @@
     "NUBANK_PASSWORD": {
       "description": "Sua senha do Nubank (A senha para acessar o site, não a senha do cartão!!)"
     }
+  },
+  "scripts": {
+    "postdeploy": "sync"
   }
 }
