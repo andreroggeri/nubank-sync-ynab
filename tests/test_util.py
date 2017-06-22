@@ -2,7 +2,8 @@ from datetime import datetime
 from unittest import TestCase
 
 from freezegun import freeze_time
-import util
+
+from nubank_sync_ynab import util
 
 
 class UtilTests(TestCase):
