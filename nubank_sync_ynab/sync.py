@@ -28,7 +28,8 @@ NUBANK_PASSWORD = os.getenv('NUBANK_PASSWORD')
 STARTING_POINT = datetime.datetime.strptime(os.getenv('STARTING_POINT'), '%Y-%m-%d').date()
 
 if __name__ == '__main__':
-    setup_logging('logging.json')
+    log_config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logging.json')
+    setup_logging(log_config_file)
     ynab = YNAB(YNAB_EMAIL, YNAB_PASSWORD, YNAB_BUDGET)
     nu = Nubank(NUBANK_LOGIN, NUBANK_PASSWORD)
     stmts = nu.get_account_statements()
