@@ -13,7 +13,7 @@ def filter_transactions(transactions, starting_date, days=30):
 
     def transaction_filter(transaction):
         transaction_date = parse_transaction_date(transaction)
-        return transaction_date > delta
+        return transaction_date >= delta
 
     return list(filter(transaction_filter, transactions))
 
