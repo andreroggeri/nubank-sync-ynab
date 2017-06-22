@@ -21,7 +21,7 @@ class SyncTests(TestCase):
 
     def test_setup_logging_missing_json(self):
         from nubank_sync_ynab.sync import setup_logging
-        self.assertFalse(setup_logging('/dev/null'))
+        self.assertFalse(setup_logging('nonexistent'))
 
     def test_setup_logging(self):
         from nubank_sync_ynab.sync import setup_logging
