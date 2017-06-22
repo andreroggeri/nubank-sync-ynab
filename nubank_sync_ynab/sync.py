@@ -5,17 +5,19 @@ import os
 
 from pynubank import Nubank
 
-from util import filter_transactions, parse_transaction_date
-from ynab import YNAB
+from .util import filter_transactions, parse_transaction_date
+from .ynab import YNAB
 
 
-def setup_logging():
+def setup_logging(filename):
     try:
-        with open('logging.json') as f:
+        with open(filename) as f:
             config = json.loads(f.read())
             logging.config.dictConfig(config)
+        return True
     except FileNotFoundError:
         print('Missing logging.json, logging not configured.')
+        return False
 
 
 YNAB_EMAIL = os.getenv('YNAB_EMAIL')
@@ -26,7 +28,7 @@ NUBANK_PASSWORD = os.getenv('NUBANK_PASSWORD')
 STARTING_POINT = datetime.datetime.strptime(os.getenv('STARTING_POINT'), '%Y-%m-%d').date()
 
 if __name__ == '__main__':
-    setup_logging()
+    setup_logging('logging.json')
     ynab = YNAB(YNAB_EMAIL, YNAB_PASSWORD, YNAB_BUDGET)
     nu = Nubank(NUBANK_LOGIN, NUBANK_PASSWORD)
     stmts = nu.get_account_statements()
