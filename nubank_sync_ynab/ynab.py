@@ -7,7 +7,6 @@ from pynYNAB.schema.budget import Account, Transaction, Payee
 
 
 class YNAB:
-
     def __init__(self, email, password, budget, ynab_connection=nYnabConnection, sync=True):
         connection = ynab_connection(email, password)
         connection.init_session()
@@ -59,9 +58,7 @@ class YNAB:
     def add_transaction(self, **kwargs):
         payee = self.get_payee(kwargs['payee'])
         subcategory = self.get_subcategory(kwargs['subcategory'])
-        if self.has_matching_transaction(kwargs['id']):
-            print('Update this transaction')
-        else:
+        if not self.has_matching_transaction(kwargs['id']):
             transaction = Transaction()
             transaction.date = kwargs['date']
             transaction.memo = 'AUTO IMPORT - {}'.format(kwargs['id'])
