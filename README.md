@@ -1,6 +1,9 @@
 # nubank-sync-ynab
 Sincronize seus gastos do Nubank com o YNAB
 
+[![Travis Build](https://travis-ci.org/andreroggeri/nubank-sync-ynab.svg?branch=master)](https://travis-ci.org/andreroggeri/nubank-sync-ynab)
+[![Coverage Status](https://coveralls.io/repos/github/andreroggeri/nubank-sync-ynab/badge.svg)](https://coveralls.io/github/andreroggeri/nubank-sync-ynab)
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Como utilizar

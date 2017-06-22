@@ -3,7 +3,7 @@ from unittest import TestCase
 
 from pynYNAB.schema import Catalog, Budget, Payee, Transaction
 
-from ynab import YNAB
+from nubank_sync_ynab.ynab import YNAB
 
 
 class MockConnection:
