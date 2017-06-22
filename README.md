@@ -18,7 +18,9 @@ Sincronize seus gastos do Nubank com o YNAB
 - "Add new job"
 - `$ sync`
 - Preecha o campo "NEXT DUE" com o horário desejado para que o sync seja executado
-6. DONE ! Agora o YNAB irá sincronizar diariamente com os seus gastos do Nubank gratuitamente 🤑
+6. DONE ! Agora o seu nYNAB estará sincronizado diariamente com o seu Nubank.
+
+![its happening](https://media.giphy.com/media/5mBE2MiMVFITS/giphy.gif)
 
 
 ## Como funciona
