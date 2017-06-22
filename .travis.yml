@@ -1,4 +1,6 @@
 language: python
 python:
 - '3.6'
-script: python -m unittest discover -s .
+script: coverage run --source=nubank_sync_ynab setup.py test
+after_success:
+  - coveralls
