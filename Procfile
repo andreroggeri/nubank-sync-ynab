@@ -1,1 +1,1 @@
-sync: python sync.py
+sync: python nubank_sync_ynab/sync.py
