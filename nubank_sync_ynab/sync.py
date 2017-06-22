@@ -5,8 +5,8 @@ import os
 
 from pynubank import Nubank
 
-from .util import filter_transactions, parse_transaction_date
-from .ynab import YNAB
+from nubank_sync_ynab.util import filter_transactions, parse_transaction_date
+from nubank_sync_ynab.ynab import YNAB
 
 
 def setup_logging(filename):
