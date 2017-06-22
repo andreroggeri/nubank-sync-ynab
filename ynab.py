@@ -1,17 +1,23 @@
 import datetime
 import logging
 
-from pynYNAB.Client import nYnabClient
+from pynYNAB.ClientFactory import nYnabClientFactory
 from pynYNAB.connection import nYnabConnection
 from pynYNAB.schema.budget import Account, Transaction, Payee
 
 
 class YNAB:
-    def __init__(self, email, password, budget):
-        connection = nYnabConnection(email, password)
+
+    def __init__(self, email, password, budget, ynab_connection=nYnabConnection, sync=True):
+        connection = ynab_connection(email, password)
         connection.init_session()
-        self.client = nYnabClient(nynabconnection=connection, budgetname=budget)
-        self.client.sync()
+        self.client = nYnabClientFactory().create_client(
+            email=email,
+            password=password,
+            nynabconnection=connection,
+            budgetname=budget,
+            sync=sync
+        )
         self.delta = 0
         self.account = self.get_nubank_account()
 
@@ -70,8 +76,9 @@ class YNAB:
             self.delta += 1
 
     def sync(self):
-        if self.delta >0:
+        if self.delta > 0:
             logging.info('Pushing {} changes'.format(self.delta))
             self.client.push(self.delta)
+            self.delta = 0
         else:
             logging.info('No changes to push.')
