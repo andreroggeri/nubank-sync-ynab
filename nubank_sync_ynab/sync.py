@@ -32,15 +32,14 @@ if __name__ == '__main__':
     setup_logging(log_config_file)
     ynab = YNAB(YNAB_EMAIL, YNAB_PASSWORD, YNAB_BUDGET)
     nu = Nubank(NUBANK_LOGIN, NUBANK_PASSWORD)
-    stmts = nu.get_account_statements()
-    transactions = filter_transactions(stmts['transactions'], STARTING_POINT)
-    for t in transactions:
+    transactions = filter_transactions(nu.get_account_statements(), STARTING_POINT)
+    for transaction in transactions:
         ynab.add_transaction(
-            payee=t['merchant_name'],
-            date=parse_transaction_date(t),
-            value=-float(t['precise_amount']),
-            id=t['id'],
-            subcategory=t['category'].capitalize()
+            payee=transaction['description'],
+            date=parse_transaction_date(transaction),
+            value=-int(transaction['amount']) / 100,
+            id=transaction['id'],
+            subcategory=transaction['category'].capitalize()
         )
 
     ynab.sync()
