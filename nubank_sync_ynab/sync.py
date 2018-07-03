@@ -32,7 +32,7 @@ if __name__ == '__main__':
     setup_logging(log_config_file)
     ynab = YNAB(YNAB_EMAIL, YNAB_PASSWORD, YNAB_BUDGET)
     nu = Nubank(NUBANK_LOGIN, NUBANK_PASSWORD)
-    transactions = filter_transactions(nu.get_account_statements(), STARTING_POINT)
+    transactions = filter_transactions(nu.get_card_statements(), STARTING_POINT)
     for transaction in transactions:
         ynab.add_transaction(
             payee=transaction['description'],
