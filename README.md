@@ -45,8 +45,8 @@ As credenciais são configuradas por variáveis de ambiente. São elas:
 - **YNAB_EMAIL**: Email utilizado no login do nYNAB 
 - **YNAB_PASSWORD**: Senha utilizada no login do nYNAB
 - **YNAB_BUDGET**: Nome do seu orçamento
-- **NUBANK_LOGIN**: Seu CPF cadastrado no Nubank (Sem pontos ou traços)
-- **NUBANK_PASSWORD**: Sua senha do Nubank (A mesma que você utiliza ao acessar o site, **não é a senha do cartão**)
+- **NUBANK_TOKEN**: Seu refresh token [gerado pelo pynubank](https://github.com/andreroggeri/pynubank/blob/master/examples/login-refresh-token.md)
+- **NUBANK_CERT**: Seu certificado do Nubank [gerado pelo pynubank](https://github.com/andreroggeri/pynubank/blob/master/examples/login-certificate.md) codificado em base64 (Para gerar no linux: `cat caminho/do/cert.p12 | base64`)
 - **STARTING_POINT**: Data que será considerada para importar os dados do Nubank para o nYNAB,
 todas as transações anteriores a essa data serão ignoradas. Idealmente essa data deve ser a data da 
 ultima transação que você cadastrou no nYNAB, isso serve para que o App não duplique as transações que você já importou. 
