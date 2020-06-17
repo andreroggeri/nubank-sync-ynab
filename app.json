@@ -26,11 +26,11 @@
     "STARTING_POINT": {
       "description": "Data em que sincronização automática iniciará. As transações anteriores a essa data não serão importadas. Formato: YYYY-MM-DD"
     },
-    "NUBANK_LOGIN": {
-      "description": "Seu CPF (Utilizado para logar na conta Nubank)"
+    "NUBANK_TOKEN": {
+      "description": "Seu Token do Nubank (gerado pelo pynubank)"
     },
-    "NUBANK_PASSWORD": {
-      "description": "Sua senha do Nubank (A senha para acessar o site, não a senha do cartão!!)"
+    "NUBANK_CERT": {
+      "description": "Seu certificado do Nubank (gerado pelo nubank) em base64"
     }
   }
 }

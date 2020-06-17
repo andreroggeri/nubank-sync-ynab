@@ -33,6 +33,7 @@ class YNAB:
             return account
 
     def get_payee(self, payee_name):
+        logging.info('Searching for payee with name "{}"'.format(payee_name))
         try:
             return next(payee for payee in self.client.budget.be_payees if payee.name == payee_name)
         except StopIteration:
@@ -50,15 +51,21 @@ class YNAB:
             return None
 
     def has_matching_transaction(self, transaction_id):
+        logging.info('Checking if transaction {} is already imported'.format(transaction_id))
         for t in self.client.budget.be_transactions:
             if t.memo and transaction_id in t.memo:
+                logging.info('{} found'.format(transaction_id))
                 return True
+        logging.info('{} not found'.format(transaction_id))
         return False
 
     def add_transaction(self, **kwargs):
+        logging.info('Adding transaction')
         payee = self.get_payee(kwargs['payee'])
         subcategory = self.get_subcategory(kwargs['subcategory'])
+
         if not self.has_matching_transaction(kwargs['id']):
+            logging.info('Creating transaction')
             transaction = Transaction()
             transaction.date = kwargs['date']
             transaction.memo = 'AUTO IMPORT - {}'.format(kwargs['id'])
