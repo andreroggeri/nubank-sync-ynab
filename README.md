@@ -7,6 +7,7 @@ Sincronize seus gastos do Nubank com o YNAB
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Como utilizar
+### Utilizando o Heroku
 1. Clique no botão "Deploy to Heroku" disponível no topo deste documento
 2. Faça login no Heroku
 3. Preencha as infomações solicitadas
@@ -21,6 +22,11 @@ Sincronize seus gastos do Nubank com o YNAB
 6. DONE ! Agora o seu nYNAB estará sincronizado diariamente com o seu Nubank.
 
 ![its happening](https://media.giphy.com/media/5mBE2MiMVFITS/giphy.gif)
+
+### Utilizando o Docker
+1. Crie um arquivo .env a partir do arquivo de exemplo: `cp .env.example .env` e insira nele as variáveis de ambiente (para mais detalhes, veja abaixo a seção "Variáveis de Ambiente")
+2. Gere uma imagem docker: `docker build -t "nubank-sync-ynab:Dockerfile" .`.
+3. Feito! Agora é só iniciar um container toda vez que quiser realizar a sincronização: ```docker run --rm -it --env-file .env nubank-sync-ynab:Dockerfile```. Se você preferir, pode adicionar um cronjob no sistema operacional para que essa tarefa seja realizada regularmente e de maneira automática.
 
 
 ## Como funciona
