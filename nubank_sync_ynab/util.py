@@ -19,4 +19,8 @@ def filter_transactions(transactions, starting_date, days=30):
 
 
 def parse_transaction_date(transaction) -> datetime.date:
-    return datetime.datetime.strptime(transaction['time'][:10], "%Y-%m-%d").date()
+    if 'time' in transaction:
+        date_key = 'time'
+    else:
+        date_key = 'postDate'
+    return datetime.datetime.strptime(transaction[date_key][:10], "%Y-%m-%d").date()

@@ -18,16 +18,15 @@ class YNAB:
             sync=sync
         )
         self.delta = 0
-        self.account = self.get_nubank_account()
 
-    def get_nubank_account(self):
+    def get_account(self, account_name):
         try:
-            logging.info('Searching for Nubank account')
-            return next(acc for acc in self.client.budget.be_accounts if acc.account_name == 'Nubank')
+            logging.info('Searching for ' + account_name + ' account')
+            return next(acc for acc in self.client.budget.be_accounts if acc.account_name == account_name)
         except StopIteration:
-            logging.info('Nubank account not found, creating a new one')
+            logging.info(account_name + ' account not found, creating a new one')
             account = Account()
-            account.account_name = 'Nubank'
+            account.account_name = account_name
             self.client.budget.be_accounts.append(account)
             self.delta += 1
             return account
@@ -63,6 +62,7 @@ class YNAB:
         logging.info('Adding transaction')
         payee = self.get_payee(kwargs['payee'])
         subcategory = self.get_subcategory(kwargs['subcategory'])
+        account = self.get_account(kwargs['account'])
 
         if not self.has_matching_transaction(kwargs['id']):
             logging.info('Creating transaction')
@@ -75,7 +75,7 @@ class YNAB:
             transaction.imported_date = datetime.datetime.now().date()
             transaction.source = "Imported"
             transaction.amount = kwargs['value']
-            transaction.entities_account_id = self.account.id
+            transaction.entities_account_id = account.id
             self.client.budget.be_transactions.append(transaction)
             self.delta += 1
 
