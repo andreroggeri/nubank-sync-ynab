@@ -1,5 +1,8 @@
-# nubank-sync-ynab
+# nubank-sync-ynab (deprecated)
 Sincronize seus gastos do Nubank com o YNAB
+
+Esse script está deprecated e não estou mais mantendo ele.
+O sucessor espiritual dele é o [brbanks2ynab](https://github.com/andreroggeri/br-to-ynab) que foi criado para dar suporte a mais instituições financeiras.
 
 [![Travis Build](https://travis-ci.org/andreroggeri/nubank-sync-ynab.svg?branch=master)](https://travis-ci.org/andreroggeri/nubank-sync-ynab)
 [![Coverage Status](https://coveralls.io/repos/github/andreroggeri/nubank-sync-ynab/badge.svg)](https://coveralls.io/github/andreroggeri/nubank-sync-ynab)
